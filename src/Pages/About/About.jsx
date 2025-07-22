@@ -5,7 +5,7 @@ import { Box } from '@mui/material';
 
 export default function About() {
   return (
-    <Box sx={{ background: 'linear-gradient(to right, #0F0C29, #302B63, #24243e)' }}>
+    <Box >
       <AboutHero />
       <AboutDetail />
     </Box>

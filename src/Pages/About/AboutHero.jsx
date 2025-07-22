@@ -72,7 +72,6 @@ export default function AboutHero() {
         height: '70vh',
         width: '100%',
         position: 'relative',
-        background: 'linear-gradient(to right, #0F0C29, #302B63, #24243e)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

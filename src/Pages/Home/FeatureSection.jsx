@@ -118,14 +118,14 @@ export default function FeatureSection() {
         {/* Text on right */}
         <Box sx={{
           flex: 1,
-          textAlign: { xs: 'center', md: 'left' },
+          textAlign: { xs: 'center', md: 'right' },
         }}>
           <Typography
             ref={textRef}
             variant="h3"
             sx={{
               fontWeight: 900,
-              fontSize: { xs: '12vw', md: '4vw' },
+              fontSize: { xs: '12vw', md: '6vw' },
               WebkitTextStroke: '1px black',
               background: 'linear-gradient(to bottom, white 0%, white 100%)',
               backgroundSize: '100% var(--bgHeight)',
@@ -133,7 +133,6 @@ export default function FeatureSection() {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               mb: 4,
-              textAlign: { md: 'end' }
             }}
           >
             Explore trends worldwide
@@ -149,7 +148,7 @@ export default function FeatureSection() {
               textAlign: { md: 'end' }
             }}
           >
-            Capture wonders in life with your friends.
+            Hop on the trends quickly and earn Diamonds.
           </Typography>
         </Box>
       </Container>

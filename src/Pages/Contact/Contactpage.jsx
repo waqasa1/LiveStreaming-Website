@@ -6,7 +6,6 @@ export default function Contactpage() {
     <Box sx={{
       width: '100%',
       minHeight: '100vh',
-      background:'linear-gradient(to right, #0F0C29, #302B63, #24243e)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',

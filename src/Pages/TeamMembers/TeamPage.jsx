@@ -5,7 +5,7 @@ import { Box } from '@mui/material'
 
 const TeamPage = () => {
   return (
-    <Box sx={{ background: 'linear-gradient(to right, #0F0C29, #302B63, #24243e)' }}>
+    <Box>
     <TeamHero />
     <TeamMember />
     </Box>

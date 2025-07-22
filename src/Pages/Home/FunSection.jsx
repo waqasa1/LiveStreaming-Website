@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import iphoneFrame from '../../assets/Iphone11.png';
 import svip2 from '../../assets/svip2.png'
+import GlowingButton from '../../Utils/GlowingButton'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,6 +26,7 @@ export default function FunSection() {
         opacity: 0,
         y: 50,
         duration: 1,
+        delay: 0.4,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -114,20 +116,8 @@ export default function FunSection() {
             justifyContent: 'flex-start',
           }}
         >
-          <Button
-            variant="contained"
-            color="primary"
-            sx={{
-              px: 4,
-              py: 1.5,
-              fontWeight: 'bold',
-              fontSize: '1rem',
-              borderRadius: '30px',
-              zIndex: '1'
-            }}
-          >
-            Join the Fun
-          </Button>
+          <GlowingButton >Join the Fun</GlowingButton>
+
         </Box>
 
         {/* Phone for small screens */}
@@ -180,7 +170,7 @@ export default function FunSection() {
             variant="h3"
             sx={{
               fontWeight: 900,
-              fontSize: { xs: '12vw', md: '4vw' },
+              fontSize: { xs: '12vw', md: '6vw' },
               WebkitTextStroke: '1px black',
               background: 'linear-gradient(to bottom, white 0%, white 100%)',
               backgroundSize: '100% var(--bgHeight)',
@@ -221,10 +211,10 @@ export default function FunSection() {
               src={bubble.img}
               sx={{
                 position: 'absolute',
-                width: 80,
-                height: 80,
-                top: `${1 + i * 20}%`,
-                left: i % 2 === 0 ? '0px' : '200px',
+                width: 100,
+                height: 100,
+                top: `${1 + i * 23}%`,
+                left: i % 2 === 0 ? '0px' : '360px',
                 boxShadow: '0px 0px 15px rgba(255,255,255,0.3)',
                 cursor: 'pointer',
                 zIndex: '0',

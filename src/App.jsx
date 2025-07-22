@@ -16,7 +16,7 @@ const App = () => {
   useEffect(() => {
     // LENIS smooth scroll
     const lenis = new Lenis({
-      lerp: 0.1,
+      lerp: 0.08,
       smooth: true,
     });
 

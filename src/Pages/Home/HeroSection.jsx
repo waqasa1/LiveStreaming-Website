@@ -87,11 +87,11 @@ export default function HeroSection() {
             ref={headingRef}
             sx={{
               fontWeight: 900,
-              fontSize: { xs: '10vw', md: '4vw' },
+              fontSize: { xs: '10vw', md: '6vw' },
               color: 'white',
               WebkitTextStroke: '1px black',
               mb: 4,
-              lineHeight: { xs: '1.2', md: '5rem' },
+              lineHeight: { xs: '1.2', md: '5vw' },
               display: 'flex',
               flexDirection: 'column',
               alignItems: { xs: 'center', md: 'flex-start' },
