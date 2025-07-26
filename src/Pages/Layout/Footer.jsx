@@ -16,26 +16,26 @@ export default function Footer() {
         color: 'white',
         py: 3,
         fontFamily: 'SVN-Gilroy',
-        zIndex:'999'
+        position: 'relative',
+        overflow: 'hidden',
+        zIndex: 999,
       }}
-    > 
+    >
+      {/* Main content */}
       <Box
         sx={{
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row' },
           flexWrap: 'wrap',
           justifyContent: { xs: 'center', md: 'space-between' },
-          gap: { xs: 2, md: 0 }, // smaller gap on mobile
+          gap: { xs: 2, md: 0 },
           maxWidth: '1200px',
           mx: 'auto',
           px: 2,
         }}
       >
-        {/* Safety Center */}
-        <Box sx={{
-          flex: '1 1 200px',
-          textAlign: { xs: 'center', md: 'left' }
-        }}>
+        {/* Sections... (Safety, Legal, Menu) */}
+        <Box sx={{ flex: '1 1 200px', textAlign: { xs: 'center', md: 'left' } }}>
           <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
             Safety Center
           </Typography>
@@ -46,11 +46,7 @@ export default function Footer() {
           </Stack>
         </Box>
 
-        {/* Legal */}
-        <Box sx={{
-          flex: '1 1 200px',
-          textAlign: { xs: 'center', md: 'left' }
-        }}>
+        <Box sx={{ flex: '1 1 200px', textAlign: { xs: 'center', md: 'left' } }}>
           <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
             Legal
           </Typography>
@@ -64,11 +60,7 @@ export default function Footer() {
           </Stack>
         </Box>
 
-        {/* Menu */}
-        <Box sx={{
-          flex: '1 1 200px',
-          textAlign: { xs: 'center', md: 'left' }
-        }}>
+        <Box sx={{ flex: '1 1 200px', textAlign: { xs: 'center', md: 'left' } }}>
           <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
             Menu
           </Typography>
@@ -88,14 +80,32 @@ export default function Footer() {
           </Stack>
         </Box>
 
-        {/* App Buttons */}
-        <Box sx={{
-          flex: '1 1 200px',
-          textAlign: 'center'
-        }}>
-          <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
-            Get the App
-          </Typography>
+        {/* Existing App Buttons */}
+        <Box sx={{ flex: '1 1 200px', textAlign: 'center' }}>
+          {/* Large Bottom Left Text with Arrow */}
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              zIndex: 1,
+              opacity: 0.15,
+              mb:'10px',
+            }}
+          >
+            <Typography
+              variant="h2"
+              sx={{
+                fontWeight: 800,
+                fontSize: { xs: '2rem', md: '4.5rem' },
+                textAlign:'center',
+                width:'100%',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              Get the App
+            </Typography>
+          </Box>
+
           <Stack spacing={2} alignItems="center">
             <Box
               component="img"
@@ -111,10 +121,11 @@ export default function Footer() {
         </Box>
       </Box>
 
+
+      {/* Copyright */}
       <Box sx={{ textAlign: 'center', mt: 4, fontSize: '0.875rem', opacity: 0.7 }}>
         © {new Date().getFullYear()} Rocco Live. All rights reserved.
       </Box>
     </Box>
-
   );
 }

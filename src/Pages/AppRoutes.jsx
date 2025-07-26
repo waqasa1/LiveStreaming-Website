@@ -14,7 +14,7 @@ import { Box } from '@mui/material'
 const AppRoutes = () => {
   return (
     <>
-      <Box sx={{ background: 'linear-gradient(to right, #0F0C29, #302B63, #24243e)' }}>
+      <Box sx={{ background: 'linear-gradient(110deg, #0F0C29, #302B63, #3ddad7)' }}>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>

@@ -1,8 +1,7 @@
-import React, { useLayoutEffect, useRef } from 'react';
-import { Box, Container, Typography } from '@mui/material';
+import React, { useLayoutEffect, useRef, useState } from 'react';
+import { Box, Typography, Button } from '@mui/material';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import iphoneFrame from '../../assets/Iphone11.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,193 +13,169 @@ const imageUrls = [
 
 export default function WondersSection() {
   const sectionRef = useRef();
-  const textRef = useRef();
-  const imageWrapperRef = useRef();
+  const imagesRef = useRef([]);
+  const [thrown, setThrown] = useState(false);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(textRef.current, {
-        y: 60,
+      gsap.from(sectionRef.current, {
         opacity: 0,
+        y: 50,
         duration: 1,
-        ease: 'power3.out',
         scrollTrigger: {
-          trigger: textRef.current,
-          start: 'top 80%',
+          trigger: sectionRef.current,
+          start: 'top 85%',
           toggleActions: 'play none none none',
         },
-      });
-
-      const images = imageWrapperRef.current.querySelectorAll('.animated-img');
-
-      imageWrapperRef.current.addEventListener('mouseenter', () => {
-        gsap.to(images[0], {
-          x: -100,
-          y: -100,
-          rotate: -10,
-          duration: 0.6,
-          ease: 'power2.out',
-        });
-        gsap.to(images[1], {
-          x: 100,
-          y: -100,
-          rotate: 10,
-          duration: 0.6,
-          ease: 'power2.out',
-        });
-        gsap.to(images[2], {
-          x: 120,
-          y: 80,
-          rotate: 8,
-          duration: 0.6,
-          ease: 'power2.out',
-        });
-      });
-
-      imageWrapperRef.current.addEventListener('mouseleave', () => {
-        gsap.to(images, {
-          x: 0,
-          y: 0,
-          rotate: 0,
-          duration: 0.6,
-          ease: 'power2.inOut',
-        });
       });
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
+  const handleClick = () => {
+    if (thrown) return;
+
+    // Animate images outward
+    gsap.to(imagesRef.current[0], {
+      x: -350, // further left
+      y: -100,
+      rotate: -15,
+      duration: 1.2,
+      ease: 'power3.out',
+    });
+    gsap.to(imagesRef.current[1], {
+      x: 0, // stays in center
+      y: -50,
+      rotate: 0,
+      duration: 1.2,
+      ease: 'power3.out',
+    });
+    gsap.to(imagesRef.current[2], {
+      x: 350, // further right
+      y: -100,
+      rotate: 15,
+      duration: 1.2,
+      ease: 'power3.out',
+    });
+
+
+    setThrown(true);
+  };
+
   return (
     <Box
       ref={sectionRef}
       sx={{
         width: '100%',
-        minHeight: '100vh',
+        height: '100vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        fontFamily: 'SVN-Gilroy',
-        position: 'relative',
-        overflow: 'hidden',
+        py: { xs: 6, md: 10 },
       }}
     >
-      <Container
-        maxWidth="lg"
+      <Box
         sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
-          alignItems: { xs: 'center', md: 'stretch' },
-          justifyContent: 'space-between',
-          textAlign: { xs: 'center', md: 'left' },
+          width: '90%',
+          height:'70vh',
+          borderRadius: '2rem',
+          backgroundColor: '#0e3b5b',
+          padding: { xs: 4, md: 6 },
+          boxShadow: '0 0 40px rgba(0,0,0,0.3)',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
-        {/* Mobile phone mockup */}
-        <Box
+        <Typography
+          variant="h3"
           sx={{
-            position: 'relative',
-            width: { xs: 180, md: 0 },
-            height: { xs: 360, md: 0 },
-            mx: 'auto',
-            display: { xs: 'block', md: 'none' },
-            mb: '50px',
+            fontWeight: 900,
+            fontSize: { xs: '10vw', md: '3.5vw' },
+            textAlign: 'center',
+            color: 'white',
+            mb: 2,
           }}
         >
-          <Box
-            component="img"
-            src="https://roccoexpert.com/static/media/fifth.a3a7983cce9cc69b7d02.png"
-            alt="Mobile Capture"
-            sx={{
-              position: 'absolute',
-              top: '3%',
-              left: '6%',
-              width: '88%',
-              height: '94%',
-              objectFit: 'cover',
-              borderRadius: '1rem',
-              zIndex: 0,
-            }}
-          />
-          <Box
-            component="img"
-            src={iphoneFrame}
-            alt="iPhone mockup"
-            sx={{
-              width: '100%',
-              height: '100%',
-              display: 'block',
-              position: 'relative',
-              zIndex: 1,
-            }}
-          />
-        </Box>
-
-        {/* Left text */}
-        <Box sx={{ flex: 1, zIndex: 2 }}>
-          <Typography
-            ref={textRef}
-            variant="h3"
-            sx={{
-              fontWeight: 900,
-              fontSize: { xs: '12vw', md: '6vw' },
-              WebkitTextStroke: '1px black',
-              background: 'linear-gradient(to bottom, white 0%, white 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              mb: 4,
-            }}
-          >
-            Capture moments in life
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              color: 'white',
-              fontWeight: 800,
-              fontSize: { xs: '5vw', md: '1.5vw' },
-              maxWidth: { xs: '90%', md: '80%' },
-              mx: { xs: 'auto', md: 0 },
-            }}
-          >
-            Share the unforgettable with friends.
-          </Typography>
-        </Box>
-
-        {/* Floating Landscape Images */}
-        <Box
-          ref={imageWrapperRef}
+          Capture Wonderful Moments
+        </Typography>
+        <Typography
+          variant="h6"
           sx={{
-            flex: 1,
+            textAlign: 'center',
+            color: 'white',
+            fontWeight: 600,
+            fontSize: { xs: '5vw', md: '1.5vw' },
+            mb: 4,
+          }}
+        >
+          And share them on Rocco
+        </Typography>
+
+        {/* Floating Images */}
+        <Box
+          sx={{
             position: 'relative',
-            height: 400,
             width: '100%',
-            display: { xs: 'none', md: 'flex' },
-            alignItems: 'center',
+            height: 300,
+            display: 'flex',
             justifyContent: 'center',
-            gap: 2,
-            cursor: 'pointer',
+            alignItems: 'center',
+            gap: 3,
+            flexWrap: 'wrap',
           }}
         >
           {imageUrls.map((url, i) => (
             <Box
               key={i}
-              className="animated-img"
               component="img"
               src={`${url}?auto=compress&cs=tinysrgb&dpr=2&h=500`}
               alt={`Floating Pic ${i + 1}`}
+              ref={(el) => (imagesRef.current[i] = el)}
               sx={{
-                position: 'absolute',
-                width: 300,
-                height: 180,
-                borderRadius: '1rem',
+                width: { xs: 140, md: 220 },
+                height: { xs: 100, md: 160 },
                 objectFit: 'cover',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-                transition: 'transform 0.3s ease',
+                borderRadius: '1rem',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
+                position: 'absolute',
               }}
             />
           ))}
         </Box>
-      </Container>
+
+        {/* Camera Click Button */}
+        {!thrown && (
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              mt: 5,
+            }}
+          >
+            <Button
+              onClick={handleClick}
+              variant="contained"
+              sx={{
+                width: 80,
+                height: 80,
+                borderRadius: '50%',
+                backgroundColor: '#fff',
+                color: '#0e3b5b',
+                fontWeight: 700,
+                fontSize: '1rem',
+                textTransform: 'none',
+                boxShadow: '0 0 20px rgba(255,255,255,0.3)',
+                '&:hover': {
+                  backgroundColor: '#e0e0e0',
+                },
+              }}
+            >
+              Click
+            </Button>
+          </Box>
+        )}
+      </Box>
     </Box>
   );
 }

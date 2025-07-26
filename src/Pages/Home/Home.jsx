@@ -11,6 +11,7 @@ import BackgroundParticles from '../../Components/BackgroundParticles';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Box } from '@mui/material';
 import AnimatedBulb from '../../Components/AnimatedBulb'
+import SectionsContainer from './SectionsContainer'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,14 +20,11 @@ export default function Home() {
 
     return (
         <>
-            {/* <BackgroundParticles />
-                <HeartShapeParticles/> */}
-            {/* <AnimatedBulb /> */}
             <HeroSection />
             <FeatureSection />
-            <WondersSection />
-            <FunSection />
-            {/* <ShineSection /> */}
+            <SectionsContainer />
+            {/* <WondersSection />  */}
+            {/* <FunSection /> */}
             <FloatingPhone />
         </>
     );

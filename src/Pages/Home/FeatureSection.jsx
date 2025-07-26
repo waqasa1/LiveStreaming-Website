@@ -3,6 +3,7 @@ import { Box, Container, Typography } from '@mui/material';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import iphoneFrame from '../../assets/Iphone11.png';
+import phoneStand from '../../assets/phonestand2.svg'; // Import your stand SVG
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,7 +30,6 @@ export default function FeatureSection() {
         y: 40,
         opacity: 0,
         duration: 1,
-        delay: 0.2,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: paraRef.current,
@@ -52,6 +52,7 @@ export default function FeatureSection() {
         alignItems: 'center',
         justifyContent: 'center',
         fontFamily: 'SVN-Gilroy',
+        position: 'relative',
       }}
     >
       <Container
@@ -59,25 +60,39 @@ export default function FeatureSection() {
         sx={{
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row' },
-          alignItems: { xs: 'center', md: 'stretch' },
+          alignItems: { xs: 'center', md: 'flex-end' },
           justifyContent: 'space-between',
-          textAlign: { xs: 'center', md: 'left' }
+          textAlign: { xs: 'center', md: 'left' },
+          position: 'relative',
         }}
       >
-        {/* Left empty side on md+ */}
-        <Box sx={{
-          flex: 1,
-          display: { xs: 'none', md: 'block' }
-        }} />
+        {/* Phone Stand for md+ */}
+        <Box
+          component="img"
+          src={phoneStand}
+          alt="Phone Stand"
+          sx={{
+            display: { xs: 'none', md: 'block' },
+            position: 'absolute',
+            bottom: '-250px',
+            left: '6%',
+            width: '380px',
+            height: 'auto',
+            zIndex: 1,
+          }}
+        />
 
-        {/* Mobile Phone (only on xs-sm) */}
+        {/* Left Spacer for md+ */}
+        <Box sx={{ flex: 1, display: { xs: 'none', md: 'block' } }} />
+
+        {/* iPhone (Mobile Only) */}
         <Box
           sx={{
             position: 'relative',
             width: { xs: 180, md: 0 },
             height: { xs: 360, md: 0 },
             mx: 'auto',
-            display: { xs: 'block', md: 'none' }, // hide on md+
+            display: { xs: 'block', md: 'none' },
             mb: '50px',
           }}
         >
@@ -91,7 +106,7 @@ export default function FeatureSection() {
             sx={{
               position: 'absolute',
               top: '3%',
-              left: '6%',
+              left: '4%',
               width: '88%',
               height: '94%',
               objectFit: 'cover',
@@ -113,13 +128,13 @@ export default function FeatureSection() {
           />
         </Box>
 
-
-
-        {/* Text on right */}
-        <Box sx={{
-          flex: 1,
-          textAlign: { xs: 'center', md: 'right' },
-        }}>
+        {/* Right Text */}
+        <Box
+          sx={{
+            flex: 1,
+            textAlign: { xs: 'center', md: 'right' },
+          }}
+        >
           <Typography
             ref={textRef}
             variant="h3"
@@ -130,6 +145,8 @@ export default function FeatureSection() {
               background: 'linear-gradient(to bottom, white 0%, white 100%)',
               backgroundSize: '100% var(--bgHeight)',
               backgroundRepeat: 'no-repeat',
+              lineHeight: { xs: '1.2', md: '5.5vw' },
+              letterSpacing:'-5px',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               mb: 4,

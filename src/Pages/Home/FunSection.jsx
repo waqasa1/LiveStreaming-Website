@@ -37,7 +37,7 @@ export default function FunSection() {
       gsap.from('.fun-subtext', {
         opacity: 0,
         y: 30,
-        delay: 0.2,
+        delay: 0.5,
         duration: 1,
         ease: 'power3.out',
         scrollTrigger: {
@@ -96,137 +96,158 @@ export default function FunSection() {
         overflow: 'hidden',
       }}
     >
-      <Container
-        maxWidth="lg"
+      <Box
         sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
-          alignItems: { xs: 'center', md: 'stretch' },
-          justifyContent: 'space-between',
-          textAlign: { xs: 'center', md: 'left' },
+          width: '90%',
+          height:'70vh',
+          borderRadius: '2rem',
+          backgroundColor: '#0e3b5b',
+          padding: { xs: 4, md: 6 },
+          boxShadow: '0 0 40px rgba(0,0,0,0.3)',
           position: 'relative',
+          overflow: 'hidden',
         }}
       >
-        {/* Button on left side */}
-        <Box
+        <Container
+          maxWidth="lg"
           sx={{
-            flex: 1,
-            display: { xs: 'none', md: 'flex' },
-            alignItems: 'center',
-            justifyContent: 'flex-start',
-          }}
-        >
-          <GlowingButton >Join the Fun</GlowingButton>
-
-        </Box>
-
-        {/* Phone for small screens */}
-        <Box
-          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            alignItems: { xs: 'center', md: 'stretch' },
+            justifyContent: 'space-between',
+            textAlign: { xs: 'center', md: 'left' },
             position: 'relative',
-            width: { xs: 180, md: 0 },
-            height: { xs: 360, md: 0 },
-            mx: 'auto',
-            display: { xs: 'block', md: 'none' },
-            mb: '50px',
           }}
         >
+          {/* Button on left side */}
           <Box
-            component="video"
-            src="https://roccoexpert.com/static/media/v3.37159be111d0212d3db6.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
             sx={{
-              position: 'absolute',
-              top: '3%',
-              left: '6%',
-              width: '88%',
-              height: '94%',
-              objectFit: 'cover',
-              borderRadius: '1rem',
-              zIndex: 0,
+              flex: 1,
+              display: { xs: 'none', md: 'flex' },
+              alignItems: 'center',
+              justifyContent: 'flex-start',
             }}
-          />
+          >
+            <GlowingButton >Join the Fun</GlowingButton>
+
+          </Box>
+
+          {/* Phone for small screens */}
           <Box
-            component="img"
-            src={iphoneFrame}
-            alt="iPhone mockup"
             sx={{
-              width: '100%',
-              height: '100%',
-              display: 'block',
               position: 'relative',
-              zIndex: 1,
-            }}
-          />
-        </Box>
-
-        {/* Text */}
-        <Box sx={{ flex: 1 }}>
-          <Typography
-            className='fun-heading'
-            variant="h3"
-            sx={{
-              fontWeight: 900,
-              fontSize: { xs: '12vw', md: '6vw' },
-              WebkitTextStroke: '1px black',
-              background: 'linear-gradient(to bottom, white 0%, white 100%)',
-              backgroundSize: '100% var(--bgHeight)',
-              backgroundRepeat: 'no-repeat',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              mb: 4,
-              textAlign: { md: 'end' },
+              width: { xs: 180, md: 0 },
+              height: { xs: 360, md: 0 },
+              mx: 'auto',
+              display: { xs: 'block', md: 'none' },
+              mb: '50px',
             }}
           >
-            Have fun with friends
-          </Typography>
-          <Typography
-            className="fun-subtext"
-            variant="h6"
-            sx={{
-              color: 'white',
-              fontWeight: 800,
-              fontSize: { xs: '5vw', md: '1.5vw' },
-              mx: { xs: 'auto', md: 0 },
-              textAlign: { md: 'end' },
-            }}
-          >
-            Share photos, videos, and messages to keep in touch.
-          </Typography>
-        </Box>
-
-        {/* Floating Bubbles */}
-        {bubbleData.map((bubble, i) => (
-          <Tooltip
-            key={bubble.name}
-            title={bubble.name}
-            arrow
-            placement="top"
-          >
-            <Avatar
-              ref={(el) => (bubbleRefs.current[i] = el)}
-              src={bubble.img}
+            <Box
+              component="video"
+              src="https://roccoexpert.com/static/media/v3.37159be111d0212d3db6.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
               sx={{
                 position: 'absolute',
-                width: 100,
-                height: 100,
-                top: `${1 + i * 23}%`,
-                left: i % 2 === 0 ? '0px' : '360px',
-                boxShadow: '0px 0px 15px rgba(255,255,255,0.3)',
-                cursor: 'pointer',
-                zIndex: '0',
-                transition: 'transform 0.3s ease',
-                '&:hover': {
-                  transform: 'scale(1.1)',
-                },
+                top: '3%',
+                left: '6%',
+                width: '88%',
+                height: '94%',
+                objectFit: 'cover',
+                borderRadius: '1rem',
+                zIndex: 0,
               }}
             />
-          </Tooltip>
-        ))}
-      </Container>
+            <Box
+              component="img"
+              src={iphoneFrame}
+              alt="iPhone mockup"
+              sx={{
+                width: '100%',
+                height: '100%',
+                display: 'block',
+                position: 'relative',
+                zIndex: 1,
+              }}
+            />
+          </Box>
+
+          {/* Text */}
+          <Box sx={{ flex: 1 }}>
+            <Typography
+              className='fun-heading'
+              variant="h3"
+              sx={{
+                fontWeight: 900,
+                fontSize: { xs: '12vw', md: '6vw' },
+                WebkitTextStroke: '1px black',
+                background: 'linear-gradient(to bottom, white 0%, white 100%)',
+                backgroundSize: '100% var(--bgHeight)',
+                backgroundRepeat: 'no-repeat',
+                WebkitBackgroundClip: 'text',
+                lineHeight: { xs: '1.2', md: '5.5vw' },
+                letterSpacing: '-5px',
+                WebkitTextFillColor: 'transparent',
+                mb: 4,
+                textAlign: { md: 'end' },
+              }}
+            >
+              Have fun with friends
+            </Typography>
+            <Typography
+              className="fun-subtext"
+              variant="h6"
+              sx={{
+                color: 'white',
+                fontWeight: 800,
+                fontSize: { xs: '5vw', md: '1.5vw' },
+                mx: { xs: 'auto', md: 0 },
+                textAlign: { md: 'end' },
+              }}
+            >
+              Share photos, videos, and messages to keep in touch.
+            </Typography>
+          </Box>
+
+          {/* Floating Bubbles */}
+          {bubbleData.map((bubble, i) => (
+            <Tooltip
+              key={bubble.name}
+              title={bubble.name}
+              arrow
+              placement="top"
+            >
+              <Avatar
+                ref={(el) => (bubbleRefs.current[i] = el)}
+                src={bubble.img}
+                sx={{
+                  position: 'absolute',
+                  width: 100,
+                  height: 100,
+                  top: `${1 + i * 23}%`,
+                  left: i % 2 === 0 ? '0px' : '360px',
+                  boxShadow: '0px 0px 15px rgba(255,255,255,0.3)',
+                  cursor: 'pointer',
+                  zIndex: '0',
+                  transition: 'transform 0.3s ease',
+                  '&:hover': {
+                    transform: 'scale(1.1)',
+                  },
+                  transform: `rotate(${Math.random() * 20 - 10}deg) scale(${1 + Math.random() * 0.2})`,
+                  animation: 'pulse 2s ease-in-out infinite',
+                  '@keyframes pulse': {
+                    '0%, 100%': { boxShadow: '0 0 15px rgba(255,255,255,0.2)' },
+                    '50%': { boxShadow: '0 0 25px rgba(255,255,255,0.5)' },
+                  },
+                }}
+              />
+            </Tooltip>
+          ))}
+        </Container>
+      </Box>
     </Box>
   );
 }

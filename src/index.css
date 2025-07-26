@@ -6,12 +6,3 @@
 body::-webkit-scrollbar {
   display: none;
 }
-
-
-@font-face {
-  font-family: 'SVN-Gilroy';
-  src: url('/fonts/SVN-Gilroy.woff2') format('woff2'),
-       url('/fonts/SVN-Gilroy.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}

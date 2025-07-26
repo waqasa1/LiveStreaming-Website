@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import { Box, Typography, Container, Stack } from '@mui/material';
-import hand from '../../assets/hand.png';
+import hand from '../../assets/hand2.webp';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -18,6 +18,7 @@ export default function HeroSection() {
       gsap.to(handRef.current, {
         x: '0vw',
         duration: 1.2,
+        delay:0.4,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: handRef.current,
@@ -31,6 +32,7 @@ export default function HeroSection() {
         y: 100,
         opacity: 0,
         stagger: 0.2,
+        delay:0.4,
         duration: 1,
         ease: 'power3.out',
         scrollTrigger: {
@@ -138,21 +140,22 @@ export default function HeroSection() {
       </Container>
 
       {/* 👇 Animated Hand */}
-      <Box
+      {/* <Box
         component="img"
         ref={handRef}
         src={hand}
         alt="Hand Holding Phone"
         sx={{
           position: 'absolute',
-          top: { md: '10%' },
-          left: { md: '50%' },
+          userSelect:'none',
+          pointerEvents:'none',
+          top: { md: '-30%' },
+          left: { md: '49%' },
           width: { xs: 150, md: 1000 },
           zIndex: 9,
           display: { xs: 'none', md: 'block' },
-          pointerEvents: 'none',
         }}
-      />
+      /> */}
     </Box>
   );
 }

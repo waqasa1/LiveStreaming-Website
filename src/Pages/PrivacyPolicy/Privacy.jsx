@@ -1,29 +1,9 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import { Box, Container, Typography } from '@mui/material';
-import { gsap } from 'gsap';
-
 export default function PrivacyPolicy() {
-    const sectionRef = useRef();
-    const headingRef = useRef();
-
-    useLayoutEffect(() => {
-        let ctx = gsap.context(() => {
-            gsap.to(headingRef.current, {
-                y: 10,
-                scale: 1.02,
-                duration: 2,
-                repeat: -1,
-                yoyo: true,
-                ease: "sine.inOut"
-            });
-        }, sectionRef);
-
-        return () => ctx.revert();
-    }, []);
 
     return (
         <Box
-            ref={sectionRef}
             sx={{
                 minHeight: '100vh',
                 width: { md: '94vw' },
@@ -44,7 +24,6 @@ export default function PrivacyPolicy() {
                 maxWidth: '900px'
             }}>
                 <Typography
-                    ref={headingRef}
                     variant="h2"
                     sx={{
                         fontSize: { xs: '10vw', md: '5vw' },

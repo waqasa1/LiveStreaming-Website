@@ -5,12 +5,11 @@ export default function Contactpage() {
   return (
     <Box sx={{
       width: '100%',
-      minHeight: '100vh',
+      minHeight: '90vh',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       fontFamily: 'SVN-Gilroy',
-      py: 8
     }}>
       <Container maxWidth="md" sx={{
         background: 'rgba(255,255,255,0.1)',
