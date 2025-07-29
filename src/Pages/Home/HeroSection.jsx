@@ -60,7 +60,7 @@ export default function HeroSection() {
   return (
     <Box
       sx={{
-        width: '100%',
+        width: {xs:'100%', xl:'70%'},
         minHeight: { xs: 'auto', md: '100vh' },
         py: { xs: 6, md: 0 },
         display: 'flex',
@@ -77,7 +77,7 @@ export default function HeroSection() {
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row' },
           alignItems: 'center',
-          justifyContent: 'space-between',
+          justifyContent: { xs: 'center', md: 'flex-start' },
           gap: { xs: 0, md: 0 },
           textAlign: { xs: 'center', md: 'left' },
         }}
@@ -91,9 +91,8 @@ export default function HeroSection() {
               fontWeight: 900,
               fontSize: { xs: '10vw', md: '6vw' },
               color: 'white',
-              WebkitTextStroke: '1px black',
               mb: 4,
-              lineHeight: { xs: '1.2', md: '5vw' },
+              lineHeight: { xs: '1.2', md: '5.4vw' },
               display: 'flex',
               flexDirection: 'column',
               alignItems: { xs: 'center', md: 'flex-start' },
@@ -138,24 +137,6 @@ export default function HeroSection() {
           </Stack>
         </Box>
       </Container>
-
-      {/* 👇 Animated Hand */}
-      {/* <Box
-        component="img"
-        ref={handRef}
-        src={hand}
-        alt="Hand Holding Phone"
-        sx={{
-          position: 'absolute',
-          userSelect:'none',
-          pointerEvents:'none',
-          top: { md: '-30%' },
-          left: { md: '49%' },
-          width: { xs: 150, md: 1000 },
-          zIndex: 9,
-          display: { xs: 'none', md: 'block' },
-        }}
-      /> */}
     </Box>
   );
 }

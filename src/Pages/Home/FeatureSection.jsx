@@ -50,7 +50,7 @@ export default function FeatureSection() {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: '',
         fontFamily: 'SVN-Gilroy',
         position: 'relative',
       }}
@@ -74,7 +74,7 @@ export default function FeatureSection() {
           sx={{
             display: { xs: 'none', md: 'block' },
             position: 'absolute',
-            bottom: '-250px',
+            bottom: '-30%',
             left: '6%',
             width: '380px',
             height: 'auto',
@@ -136,23 +136,22 @@ export default function FeatureSection() {
           }}
         >
           <Typography
-            ref={textRef}
             variant="h3"
+            ref={textRef}
             sx={{
               fontWeight: 900,
-              fontSize: { xs: '12vw', md: '6vw' },
-              WebkitTextStroke: '1px black',
-              background: 'linear-gradient(to bottom, white 0%, white 100%)',
-              backgroundSize: '100% var(--bgHeight)',
-              backgroundRepeat: 'no-repeat',
-              lineHeight: { xs: '1.2', md: '5.5vw' },
-              letterSpacing:'-5px',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              fontSize: { xs: '10vw', md: '6vw' },
+              color: 'white',
               mb: 4,
+              lineHeight: { xs: '1.2', md: '5.4vw' },
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: { xs: 'center', md: 'flex-end' },
             }}
           >
-            Explore trends worldwide
+            <Box component="span">Explore</Box>
+            <Box component="span">trends</Box>
+            <Box component="span">WorldWide</Box>
           </Typography>
           <Typography
             ref={paraRef}

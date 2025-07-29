@@ -26,16 +26,79 @@ export default function FloatingPhone() {
         });
       });
 
-      mm.add('(min-width: 900px)', () => {
+      // Different breakpoints for better responsiveness
+      mm.add('(min-width: 900px) and (max-width: 1200px)', () => {
         gsap.set(phoneRef.current, {
-          x: '20vw', y: '0vh', rotate: '-10deg', scale: 1
+          x: '15vw', y: '0vh', rotate: '-8deg', scale: 0.8
+        });
+        3
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: document.body,
+            start: 'top top',
+            end: () => `+=${window.innerHeight * 1}`,
+            scrub: true,
+            pin: phoneRef.current,
+          },
+        });
+
+        tl.to(phoneRef.current, {
+          scale: 0.4,
+          duration: 0.4,
+          ease: 'power2.inOut'
+        })
+          .to(phoneRef.current, {
+            x: '-33vw',
+            y: '0vh',
+            rotate: '0deg',
+            scale: 0.8,
+            duration: 1,
+            ease: 'power2.inOut'
+          })
+          .to(video2Ref.current, { opacity: 1 }, '<');
+      });
+
+      mm.add('(min-width: 1200px) and (max-width: 1600px)', () => {
+        gsap.set(phoneRef.current, {
+          x: '18vw', y: '0vh', rotate: '-10deg', scale: 1
         });
 
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: document.body,
             start: 'top top',
-            end: 'top+=800',
+            end: () => `+=${window.innerHeight * 1}`,
+            scrub: true,
+            pin: phoneRef.current,
+          },
+        });
+
+        tl.to(phoneRef.current, {
+          scale: 0.45,
+          duration: 0.4,
+          ease: 'power2.inOut'
+        })
+          .to(phoneRef.current, {
+            x: '-28vw',
+            y: '0vh',
+            rotate: '0deg',
+            scale: 1,
+            duration: 1,
+            ease: 'power2.inOut'
+          })
+          .to(video2Ref.current, { opacity: 1 }, '<');
+      });
+
+      mm.add('(min-width: 1600px)', () => {
+        gsap.set(phoneRef.current, {
+          x: '25vw', y: '0vh', rotate: '-10deg', scale: 1
+        });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: document.body,
+            start: 'top top',
+            end: () => `+=${window.innerHeight * 1}`,
             scrub: true,
             pin: phoneRef.current,
           },
@@ -46,7 +109,6 @@ export default function FloatingPhone() {
           duration: 0.4,
           ease: 'power2.inOut'
         })
-
           .to(phoneRef.current, {
             x: '-30vw',
             y: '0vh',
@@ -55,7 +117,6 @@ export default function FloatingPhone() {
             duration: 1,
             ease: 'power2.inOut'
           })
-
           .to(video2Ref.current, { opacity: 1 }, '<');
       });
 
@@ -67,7 +128,7 @@ export default function FloatingPhone() {
 
   return (
     <>
-      {/* ✋ Hand - static, not animated */}
+      {/* ✋ Hand - responsive positioning and sizing */}
       <Box
         component="img"
         ref={handRef}
@@ -77,24 +138,79 @@ export default function FloatingPhone() {
           position: 'absolute',
           userSelect: 'none',
           pointerEvents: 'none',
-          top: { md: '10%' },
-          right: { md: 0 },
-          width: { xs: 150, md: 600 },
+          top: { 
+            md: '10%',
+            lg: '10%',
+            xl: '10%'
+          },
+          right: { 
+            md: '0%',
+            lg: '0%',
+            xl: '0%'
+          },
+          width: { 
+            xs: 150, 
+            md: '35vw',
+            lg: '31vw',
+            xl: '40vw'
+          },
+          maxWidth: {
+            md: 500,
+            lg: 550,
+            xl: 600
+          },
+          minWidth: {
+            md: 400
+          },
           zIndex: 9,
           display: { xs: 'none', md: 'block' },
         }}
       />
 
-      {/* 📱 Phone Container */}
+      {/* 📱 Phone Container - responsive sizing */}
       <Box
         ref={phoneRef}
         sx={{
           position: 'absolute',
-          top: '15%',
-          left: '48%',
+          top: { 
+            md: '13%',
+            lg: '15%',
+            xl: '15%'
+          },
+          right: { 
+            md: '25%',
+            lg: '27%',
+            xl: '32%'
+          },
           transform: 'translate(-50%, -10%)',
-          width: { xs: 200, md: 320 },
-          height: { xs: 400, md: 600 },
+          width: { 
+            xs: 200, 
+            md: '18vw',
+            lg: '16vw',
+            xl: '20vw'
+          },
+          height: { 
+            xs: 400, 
+            md: '36vw',
+            lg: '32vw',
+            xl: '37.5vw'
+          },
+          maxWidth: {
+            md: 280,
+            lg: 250,
+            xl: 320
+          },
+          maxHeight: {
+            md: 560,
+            lg: 530,
+            xl: 600
+          },
+          minWidth: {
+            md: 220
+          },
+          minHeight: {
+            md: 440
+          },
           zIndex: 10,
           display: { xs: 'none', md: 'block' },
           pointerEvents: 'none',

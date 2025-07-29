@@ -47,21 +47,21 @@ function WondersSection() {
 
     gsap.to(imagesRef.current[0], {
       x: -350,
-      y: -100,
+      y: -50,
       rotate: -15,
       duration: 1.2,
       ease: 'power3.out',
     });
     gsap.to(imagesRef.current[1], {
       x: 0,
-      y: -50,
+      y: 80,
       rotate: 0,
       duration: 1.2,
       ease: 'power3.out',
     });
     gsap.to(imagesRef.current[2], {
       x: 350,
-      y: -100,
+      y: -50,
       rotate: 15,
       duration: 1.2,
       ease: 'power3.out',
@@ -75,7 +75,7 @@ function WondersSection() {
       ref={sectionRef}
       sx={{
         width: '100%',
-        height: '100vh',
+        height: '90vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -98,7 +98,7 @@ function WondersSection() {
           variant="h3"
           sx={{
             fontWeight: 900,
-            fontSize: { xs: '10vw', md: '3.5vw' },
+            fontSize: { xs: '12vw', md: '6vw' },
             textAlign: 'center',
             background: 'linear-gradient(to bottom, white 0%, #ff6b6b 100%)',
             backgroundClip: 'text',
@@ -107,7 +107,8 @@ function WondersSection() {
             mb: 2,
           }}
         >
-          Capture Wonderful Moments
+          <span>Capture </span>
+          <span>Moments</span>
         </Typography>
         <Typography
           variant="h6"
@@ -142,8 +143,9 @@ function WondersSection() {
               alt={`Floating Pic ${i + 1}`}
               ref={(el) => (imagesRef.current[i] = el)}
               sx={{
-                width: { xs: 140, md: 220 },
-                height: { xs: 100, md: 160 },
+                mt:0,
+                width: { xs: 140, md: 400 },
+                height: { xs: 100, md: 250 },
                 objectFit: 'cover',
                 borderRadius: '1rem',
                 boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
@@ -158,7 +160,7 @@ function WondersSection() {
             sx={{
               display: 'flex',
               justifyContent: 'center',
-              mt: 5,
+              mt: 0,
             }}
           >
             <Button
@@ -263,7 +265,7 @@ function FunSection() {
       ref={sectionRef}
       sx={{
         width: '100%',
-        minHeight: '100vh',
+        minHeight: '90vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
