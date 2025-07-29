@@ -31,7 +31,7 @@ export default function FloatingPhone() {
         gsap.set(phoneRef.current, {
           x: '15vw', y: '0vh', rotate: '-8deg', scale: 0.8
         });
-        3
+
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: document.body,
@@ -48,7 +48,7 @@ export default function FloatingPhone() {
           ease: 'power2.inOut'
         })
           .to(phoneRef.current, {
-            x: '-33vw',
+            x: '-39vw',
             y: '0vh',
             rotate: '0deg',
             scale: 0.8,
@@ -79,7 +79,7 @@ export default function FloatingPhone() {
           ease: 'power2.inOut'
         })
           .to(phoneRef.current, {
-            x: '-28vw',
+            x: '-41vw',
             y: '0vh',
             rotate: '0deg',
             scale: 1,
@@ -128,7 +128,7 @@ export default function FloatingPhone() {
 
   return (
     <>
-      {/* ✋ Hand - responsive positioning and sizing */}
+      {/* ✋ Hand - positioned behind phone but above stand */}
       <Box
         component="img"
         ref={handRef}
@@ -162,12 +162,15 @@ export default function FloatingPhone() {
           minWidth: {
             md: 400
           },
+          // CRITICAL: Higher than stand (2) but lower than phone (50+)
           zIndex: 9,
           display: { xs: 'none', md: 'block' },
+          // Ensure smooth rendering
+          transform: 'translateZ(0)',
         }}
       />
 
-      {/* 📱 Phone Container - responsive sizing */}
+      {/* 📱 Phone Container - HIGHEST Z-INDEX for guaranteed top positioning */}
       <Box
         ref={phoneRef}
         sx={{
@@ -211,9 +214,14 @@ export default function FloatingPhone() {
           minHeight: {
             md: 440
           },
-          zIndex: 10,
+          // CRITICAL: Extremely high z-index to guarantee it's always on top
+          zIndex: 50,
           display: { xs: 'none', md: 'block' },
           pointerEvents: 'none',
+          // Force hardware acceleration and create new stacking context
+          transform: 'translate(-50%, -10%) translateZ(0)',
+          // Additional insurance for layering
+          isolation: 'isolate',
         }}
       >
         {/* 🎥 Video 1 */}
@@ -222,7 +230,10 @@ export default function FloatingPhone() {
           ref={video1Ref}
           src="https://roccoexpert.com/static/media/v1.e4a07343f13a994a8e4b.mp4"
           autoPlay muted loop playsInline
-          sx={videoStyle}
+          sx={{
+            ...videoStyle,
+            zIndex: 51, // Higher than container
+          }}
         />
 
         {/* 🎥 Video 2 */}
@@ -231,10 +242,13 @@ export default function FloatingPhone() {
           ref={video2Ref}
           src="https://roccoexpert.com/static/media/v2.215ac884640c81e72f07.mp4"
           autoPlay muted loop playsInline
-          sx={videoStyle}
+          sx={{
+            ...videoStyle,
+            zIndex: 51, // Higher than container
+          }}
         />
 
-        {/* 📱 iPhone Frame */}
+        {/* 📱 iPhone Frame - HIGHEST of all */}
         <Box
           component="img"
           src={iphoneFrame}
@@ -242,10 +256,12 @@ export default function FloatingPhone() {
           sx={{
             width: '100%',
             height: '100%',
-            zIndex: 10,
+            zIndex: 52, // Highest z-index
             position: 'absolute',
             top: 0,
             left: 0,
+            // Force new stacking context
+            transform: 'translateZ(0)',
           }}
         />
       </Box>
@@ -261,5 +277,5 @@ const videoStyle = {
   height: '94%',
   objectFit: 'cover',
   borderRadius: '1rem',
-  zIndex: 8,
+  transform: 'translateZ(0)', // Hardware acceleration
 };

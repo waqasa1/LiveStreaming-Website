@@ -3,7 +3,7 @@ import { Box, Container, Typography } from '@mui/material';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import iphoneFrame from '../../assets/Iphone11.png';
-import phoneStand from '../../assets/phonestand2.svg'; // Import your stand SVG
+import phoneStand from '../../assets/phonestand2.svg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,9 +11,11 @@ export default function FeatureSection() {
   const sectionRef = useRef();
   const textRef = useRef();
   const paraRef = useRef();
+  const standRef = useRef();
 
   useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
+      // Animate text
       gsap.from(textRef.current, {
         y: 60,
         opacity: 0,
@@ -22,8 +24,8 @@ export default function FeatureSection() {
         scrollTrigger: {
           trigger: textRef.current,
           start: 'top 80%',
-          toggleActions: 'play none none none'
-        }
+          toggleActions: 'play none none none',
+        },
       });
 
       gsap.from(paraRef.current, {
@@ -34,9 +36,38 @@ export default function FeatureSection() {
         scrollTrigger: {
           trigger: paraRef.current,
           start: 'top 85%',
-          toggleActions: 'play none none none'
-        }
+          toggleActions: 'play none none none',
+        },
       });
+
+      // Enhanced responsive phone stand placement with better positioning
+      const mm = gsap.matchMedia();
+
+      mm.add('(min-width: 900px) and (max-width: 1200px)', () => {
+        gsap.set(standRef.current, {
+          x: '8vw',
+          y: '-8vh',
+          scale: 0.9,
+        });
+      });
+
+      mm.add('(min-width: 1200px) and (max-width: 1600px)', () => {
+        gsap.set(standRef.current, {
+          x: '2vw',
+          y: '0',
+          scale: 1,
+        });
+      });
+
+      mm.add('(min-width: 1600px)', () => {
+        gsap.set(standRef.current, {
+          x: '3vw',
+          y: '0',
+          scale: 1.1,
+        });
+      });
+
+      return () => mm.revert();
     }, sectionRef);
 
     return () => ctx.revert();
@@ -46,13 +77,15 @@ export default function FeatureSection() {
     <Box
       ref={sectionRef}
       sx={{
-        width: '100%',
+        width: { xs: '100%', xl: '100%' },
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: '',
+        justifyContent: 'center',
         fontFamily: 'SVN-Gilroy',
         position: 'relative',
+        // Ensure this section doesn't interfere with phone layering
+        zIndex: 0,
       }}
     >
       <Container
@@ -62,23 +95,33 @@ export default function FeatureSection() {
           flexDirection: { xs: 'column', md: 'row' },
           alignItems: { xs: 'center', md: 'flex-end' },
           justifyContent: 'space-between',
-          textAlign: { xs: 'center', md: 'left' },
           position: 'relative',
+          zIndex: 1,
         }}
       >
-        {/* Phone Stand for md+ */}
+        {/* Phone Stand for md+ - CRITICAL: Lower z-index */}
         <Box
           component="img"
+          ref={standRef}
           src={phoneStand}
           alt="Phone Stand"
           sx={{
             display: { xs: 'none', md: 'block' },
             position: 'absolute',
-            bottom: '-30%',
-            left: '6%',
-            width: '380px',
+            bottom:'-35%',
+            left: {xs:'0',xl:'-8%'},
+            width: {
+              md: '320px',
+              lg: '360px',
+              xl: '400px'
+            },
             height: 'auto',
-            zIndex: 1,
+            // CRITICAL: Much lower z-index than phone (which is 10)
+            zIndex: 2,
+            // Ensure it doesn't capture pointer events
+            pointerEvents: 'none',
+            // Better positioning control
+            transform: 'translateZ(0)', // Force hardware acceleration
           }}
         />
 
@@ -94,6 +137,7 @@ export default function FeatureSection() {
             mx: 'auto',
             display: { xs: 'block', md: 'none' },
             mb: '50px',
+            zIndex: 10, // High z-index for mobile
           }}
         >
           <Box
@@ -111,7 +155,7 @@ export default function FeatureSection() {
               height: '94%',
               objectFit: 'cover',
               borderRadius: '1rem',
-              zIndex: 0,
+              zIndex: 8,
             }}
           />
           <Box
@@ -123,7 +167,7 @@ export default function FeatureSection() {
               height: '100%',
               display: 'block',
               position: 'relative',
-              zIndex: 1,
+              zIndex: 9,
             }}
           />
         </Box>
@@ -133,6 +177,8 @@ export default function FeatureSection() {
           sx={{
             flex: 1,
             textAlign: { xs: 'center', md: 'right' },
+            marginLeft: { xl: '60%' },
+            zIndex: 3, // Above stand but below phone
           }}
         >
           <Typography
