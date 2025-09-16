@@ -59,7 +59,7 @@ export default function FloatingPhone() {
       sx={{
         position: 'absolute',
         top: { md: '13%', lg: '13%', xl: '15%' },
-        right: { md: '25%', lg: '27%', xl: '32%' },
+        right: { md: '25%', lg: '25%', xl: '32%' },
         width: { xs: 200, md: '18vw', lg: '22vw', xl: '20vw' },
         height: { xs: 400, md: '36vw', lg: '40vw', xl: '37.5vw' },
         minWidth: { md: 220 },
