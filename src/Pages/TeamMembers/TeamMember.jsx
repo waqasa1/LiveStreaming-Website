@@ -2,34 +2,34 @@ import { Box, Typography, Avatar } from "@mui/material"
 
 const teamMembers = [
   {
-    img: "https://roccoexpert.com/static/media/ahmed.e621fc6cc1d52f9f6131.webp",
+    img: "",
     name: "Ahmed Arif",
-    role: "Marketing Manager at Rocco",
+    role: "Marketing Manager at Streamify",
   },
   {
-    img: "https://roccoexpert.com/static/media/nouman.10ceeab208ad6a524539.jpg",
+    img: "",
     name: "Nouman Saeed",
-    role: "South Asia Manager at Rocco",
+    role: "South Asia Manager at Streamify",
   },
   {
-    img: "https://roccoexpert.com/static/media/shan.42038692d024b8e6a403.jpg",
+    img: "",
     name: "Shan Ali",
-    role: "Web Developer at Rocco Live",
+    role: "Web Developer at Streamify Live",
   },
   {
-    img: "https://roccoexpert.com/static/media/Huy.3af84ce187614ab863c5.jpg",
+    img: "",
     name: "Huy Nguyen",
-    role: "Project Manager at Rocco",
+    role: "Project Manager at Streamify",
   },
   {
-    img: "https://roccoexpert.com/static/media/Noel.aa65d6d8288709dab48c.jpg",
+    img: "",
     name: "Noel",
-    role: "Team Lead at Rocco",
+    role: "Team Lead at Streamify",
   },
   {
-    img: "https://roccoexpert.com/static/media/Linh.fff42522fd7435337c0f.jpg",
+    img: "",
     name: "Linh Kim Huynh",
-    role: "UI/UX Designer at Rocco Live",
+    role: "UI/UX Designer at Streamfiy Live",
   },
 ]
 

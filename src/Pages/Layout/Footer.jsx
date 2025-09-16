@@ -124,7 +124,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <Box sx={{ textAlign: 'center', mt: 4, fontSize: '0.875rem', opacity: 0.7 }}>
-        © {new Date().getFullYear()} Rocco Live. All rights reserved.
+        © {new Date().getFullYear()} streamify Live. All rights reserved.
       </Box>
     </Box>
   );

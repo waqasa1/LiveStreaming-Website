@@ -36,8 +36,8 @@ export default function Contactpage() {
           <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
             📧 Email
           </Typography>
-          <Link href="mailto:info@roccovideo.com" underline="hover" sx={{ color: 'white', fontSize: '1.1rem' }}>
-            info@roccovideo.com
+          <Link href="mailto:info@loremvideo.com" underline="hover" sx={{ color: 'white', fontSize: '1.1rem' }}>
+            info@loremvideo.com
           </Link>
 
           <Typography variant="h5" sx={{ fontWeight: 700, mt: 4, mb: 2 }}>

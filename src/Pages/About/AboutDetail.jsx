@@ -89,10 +89,10 @@ export default function About() {
                                 lineHeight: '1.6',
                                 fontFamily: 'SVN-Gilroy',
                             }}>
-                                Rocco Video stands as the premier short video application registered mainly in Singapore,
+                                Live Video stands as the premier short video application registered mainly in Singapore,
                                 redefining the digital landscape with its innovative platform. Designed for a discerning audience,
-                                Rocco Video offers a curated space for creators to produce, share, and engage with compelling short-form content.
-                                Immerse yourself in a sophisticated blend of entertainment and culture as Rocco Video showcases the diverse talent
+                                Live Video offers a curated space for creators to produce, share, and engage with compelling short-form content.
+                                Immerse yourself in a sophisticated blend of entertainment and culture as Live Video showcases the diverse talent
                                 and narratives of the short videos and live streaming community. Our cutting-edge technology ensures a seamless
                                 and immersive user experience, with features that empower creators and captivate audiences. Join us on this
                                 transformative journey as we pioneer the next era of short video content in the world.

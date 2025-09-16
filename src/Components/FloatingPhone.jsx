@@ -185,7 +185,6 @@ export default function FloatingPhone() {
             lg: '27%',
             xl: '32%'
           },
-          transform: 'translate(-50%, -10%)',
           width: { 
             xs: 200, 
             md: '18vw',

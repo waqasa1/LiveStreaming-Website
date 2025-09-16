@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AppBar, Toolbar, Box, Stack, Button, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo3.png'
 
 export default function Navbar() {
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -31,7 +31,7 @@ export default function Navbar() {
                             <Box
                                 component="img"
                                 src={logo}
-                                alt="Rocco Live Logo"
+                                alt="Live Logo"
                                 sx={{
                                     height: 80,
                                     cursor: 'pointer',

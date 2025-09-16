@@ -61,7 +61,7 @@ export default function Preloader({ onComplete }) {
                 ref={logoRef}
                 component="img"
                 src={logo}
-                alt="Rocco Live"
+                alt="Live"
                 sx={{
                     width: { xs: 150, md: 200 },
                     mb: 3

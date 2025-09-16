@@ -109,7 +109,7 @@ export default function WondersSection() {
             mb: 4,
           }}
         >
-          And share them on Rocco
+          And share them on streamify
         </Typography>
 
         {/* Floating Images */}

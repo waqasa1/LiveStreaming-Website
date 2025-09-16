@@ -120,7 +120,7 @@ function WondersSection() {
             mb: 4,
           }}
         >
-          And share them on Rocco
+          And share them on streamify
         </Typography>
 
         <Box

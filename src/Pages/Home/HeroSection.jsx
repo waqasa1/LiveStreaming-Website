@@ -116,7 +116,7 @@ export default function HeroSection() {
               mx: { xs: 'auto', md: 0 },
             }}
           >
-            Join millions worldwide sharing moments on Rocco Live.
+            Join millions worldwide sharing moments on streaming Live.
           </Typography>
 
           <Stack

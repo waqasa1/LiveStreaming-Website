@@ -38,7 +38,7 @@ export default function CommunityGuidelines() {
                 </Typography>
 
                 <Typography sx={{ fontSize: '1.2rem', color: '#333', lineHeight: 1.7, mb: 4 }}>
-                    This policy is designed in accordance with the live streaming guidelines for both streamers and users. Live streamers must adhere to these policies set forth by RoccoLive. This SOP outlines actions taken for each Rocco account or UID in case of violations.
+                    This policy is designed in accordance with the live streaming guidelines for both streamers and users. Live streamers must adhere to these policies set forth by streanLive. This SOP outlines actions taken for each  account or UID in case of violations.
                 </Typography>
 
                 <Typography variant="h4" sx={{ fontWeight: 700, color: '#302B63', mb: 2, textAlign: 'left' }}>
@@ -53,7 +53,7 @@ export default function CommunityGuidelines() {
                     <ListItem>• Meaningless content: blank screens, sleep, idle sitting.</ListItem>
                     <ListItem>• Abusive behavior towards hosts, users, or officials.</ListItem>
                     <ListItem>• Guiding followers to illegal activities.</ListItem>
-                    <ListItem>• Campaigns against RoccoLive or its officials.</ListItem>
+                    <ListItem>• Campaigns against stream or its officials.</ListItem>
                     <ListItem>• Threatening users, followers, or officials.</ListItem>
                     <ListItem>• Inappropriate content: explicit sexual content, nudity, or sexual conversations.</ListItem>
                     <ListItem>• Display of banned substances: drugs, smoking, alcohol, firearms.</ListItem>
@@ -61,7 +61,7 @@ export default function CommunityGuidelines() {
                     <ListItem>• Any activities involving blood.</ListItem>
                     <ListItem>• Speaking against any sect, religion, or messenger.</ListItem>
                     <ListItem>• Political campaigns or speaking against any political party.</ListItem>
-                    <ListItem>• Note: This list may change as per RoccoLive Team’s requirements.</ListItem>
+                    <ListItem>• Note: This list may change as per stream Team’s requirements.</ListItem>
                 </List>
 
                 <Typography variant="h4" sx={{ fontWeight: 700, color: '#302B63', mb: 2, textAlign: 'left' }}>
@@ -80,7 +80,7 @@ export default function CommunityGuidelines() {
                     • 2nd Instance: 3-day ban<br/>
                     • 3rd Instance: 7-day ban<br/>
                     • 4th Instance: Permanent ban + device ban.<br/>
-                    • Note: These actions can change at RoccoLive Team’s discretion.
+                    • Note: These actions can change at stream Team’s discretion.
                 </Typography>
 
                 <Typography variant="h4" sx={{ fontWeight: 700, color: '#302B63', mb: 2, textAlign: 'left' }}>
